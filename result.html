@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>登录结果</title>
+    <title>青年大学习登录结果</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=11" id="mixia_vpid">
     <style>
         body {
@@ -41,7 +41,7 @@
 </head>
 <body>
 <div class="content">
-    <h2>登录结果</h2>
+    <h2>青年大学习登录结果</h2>
     <p>微信昵称：<code id="nickname">加载中...</code></p>
     <p>微信头像</p>
     <img id="avatar" src="" alt="avatar">
@@ -50,10 +50,10 @@
     <div class="login_data">
         <label>
             姓名<br>
-            <input type="text" id="name">
+            <input type="text" id="name" value="">
         </label>
         <button onclick="generateCode()" type="button">生成代码</button>
-        <p>如果你有需求每周自动做青年大学习，可以把下面的代码发给我。（仅限高二1班，其他班级请单独私信）</p>
+        <p>如果你有需求每周自动做青年大学习，可以把下面的代码发给我，点击即可复制。（仅限高二1班，其他班级请单独私信）</p>
         <div class="copyable" onclick="copy()">
             <code id="token">请先输入姓名</code>
         </div>
@@ -93,10 +93,10 @@
     }
 
     function generateCode(){
-        if(document.getElementById("name") == ''){
-            alert('请输入姓名！')
+        if(document.getElementById("name").value == ''){
+            alert('请先输入姓名！')
         }else{
-            document.getElementById("token").innerText = 'once('+document.getElementById("name")+','+getQueryParams('openid')+')';
+            document.getElementById("token").innerText = 'once(\''+document.getElementById("name").value+'\',\''+getQueryParams('openid')+'\')';
         }
     }
 
